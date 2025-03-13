@@ -1,0 +1,494 @@
+[gd_scene load_steps=44 format=3 uid="uid://u670durmheuj"]
+
+[ext_resource type="PackedScene" uid="uid://cda6267y3faet" path="res://oficina.tscn" id="1_l3hyt"]
+[ext_resource type="PackedScene" uid="uid://cm0mqk367h8j8" path="res://character.tscn" id="2_bq5b8"]
+[ext_resource type="Script" path="res://camera_3d.gd" id="3_lvccc"]
+[ext_resource type="PackedScene" uid="uid://cdunkvnqsmpft" path="res://time_manager.tscn" id="4_fnlfj"]
+[ext_resource type="Script" path="res://items_manager.gd" id="5_gnmkv"]
+[ext_resource type="Script" path="res://csg_mesh_3d.gd" id="6_lswtj"]
+[ext_resource type="AudioStream" uid="uid://bgc5jlq3w3nfm" path="res://juego_0.wav" id="7_dyche"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c272w"]
+size = Vector3(22.1435, 12.5219, 21.033)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j7oxj"]
+size = Vector3(19.6013, 10.6656, 11.0568)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ueqe"]
+size = Vector3(57.2427, 10.3951, 18.2039)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bnnv5"]
+size = Vector3(34.5104, 10.9847, 16.9093)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ohfbu"]
+size = Vector3(36.3826, 21.2942, 22.8155)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bpp7w"]
+size = Vector3(46.6345, 15.389, 13.2678)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jss5x"]
+size = Vector3(44.1268, 15.389, 13.2678)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t6m0t"]
+size = Vector3(119.994, 77.1955, 19.1894)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_i2bot"]
+radius = 4.41721
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ae11d"]
+size = Vector3(2.80908, 5.22852, 10.3463)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ljxgh"]
+radius = 2.26709
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t1ufa"]
+size = Vector3(16.7727, 7.95758, 3.86053)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r75ja"]
+size = Vector3(2.92002, 3.87097, 7.87195)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rkl3n"]
+size = Vector3(5.56915, 3.78406, 5.42979)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l1ii8"]
+size = Vector3(3.7762, 3.78406, 7.11912)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kq55l"]
+size = Vector3(10.69, 6.44247, 5.45782)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_by0ix"]
+size = Vector3(3.25183, 6.44247, 5.25833)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dlnrm"]
+size = Vector3(12.3032, 6.44247, 3.79261)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cdss4"]
+size = Vector3(7.5759, 6.44247, 9.33072)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7tf1w"]
+size = Vector3(5.55303, 8.98686, 10.3079)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ptuyc"]
+radius = 3.12796
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bchwn"]
+radius = 3.94186
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fycyi"]
+size = Vector3(12.642, 5.6825, 7.80516)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xw5jg"]
+size = Vector3(2.62731, 3.73894, 2.34952)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6r6ek"]
+size = Vector3(18.6329, 21.177, 25.8458)
+
+[sub_resource type="Animation" id="Animation_kxviv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cce8h"]
+resource_name = "new_animation"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6f1wp"]
+_data = {
+"RESET": SubResource("Animation_kxviv"),
+"new_animation": SubResource("Animation_cce8h")
+}
+
+[sub_resource type="Animation" id="Animation_w1era"]
+resource_name = "new_animation"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yxmeg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_oyixr"]
+resource_name = "oscurecer"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(3.03143, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_27kcf"]
+_data = {
+"Aparecer": SubResource("Animation_w1era"),
+"RESET": SubResource("Animation_yxmeg"),
+"oscurecer": SubResource("Animation_oyixr")
+}
+
+[sub_resource type="BoxMesh" id="BoxMesh_vn26k"]
+
+[sub_resource type="Animation" id="Animation_esfe1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_swuye"]
+resource_name = "audio"
+length = 112.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 110, 112),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-50.0, 0.0, 0.0, -80.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hcnq5"]
+_data = {
+"RESET": SubResource("Animation_esfe1"),
+"audio": SubResource("Animation_swuye")
+}
+
+[node name="Node3D" type="Node3D"]
+
+[node name="oficina" parent="." instance=ExtResource("1_l3hyt")]
+
+[node name="Node3D" parent="." instance=ExtResource("2_bq5b8")]
+transform = Transform3D(2.135, 0, 0, 0, 2.135, 0, 0, 0, 2.135, -2.00594, 2.29229, 0)
+
+[node name="CameraManager" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraManager"]
+transform = Transform3D(0.784776, 0.311761, -0.535659, 0, 0.864275, 0.50302, 0.619779, -0.394758, 0.678263, -9.313, 7.964, 8.896)
+far = 400.0
+script = ExtResource("3_lvccc")
+
+[node name="oficina" type="Area3D" parent="CameraManager"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraManager/oficina"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00927, 4.40106, -0.671265)
+shape = SubResource("BoxShape3D_c272w")
+
+[node name="baño" type="Area3D" parent="CameraManager"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraManager/baño"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1193, 4.83279, -12.6537)
+shape = SubResource("BoxShape3D_j7oxj")
+
+[node name="muertos" type="Area3D" parent="CameraManager"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraManager/muertos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.0778, 5.1895, 16.6034)
+shape = SubResource("BoxShape3D_8ueqe")
+
+[node name="cocina" type="Area3D" parent="CameraManager"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraManager/cocina"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.5979, 4.99237, 16.9814)
+shape = SubResource("BoxShape3D_bnnv5")
+
+[node name="salon" type="Area3D" parent="CameraManager"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraManager/salon"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85.2989, 1.32019, -20.1315)
+shape = SubResource("BoxShape3D_ohfbu")
+
+[node name="pasillo1" type="Area3D" parent="CameraManager"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraManager/pasillo1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.6375, 7.19452, 0.0352478)
+shape = SubResource("BoxShape3D_bpp7w")
+
+[node name="pasillo2" type="Area3D" parent="CameraManager"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraManager/pasillo2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.2651, 7.19452, 0.0352478)
+shape = SubResource("BoxShape3D_jss5x")
+
+[node name="Escaleras" type="Area3D" parent="CameraManager"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="CameraManager/Escaleras"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -169.034, -18.7934, -0.192192)
+shape = SubResource("BoxShape3D_t6m0t")
+
+[node name="TimeManager" parent="." instance=ExtResource("4_fnlfj")]
+
+[node name="items_manager" type="Node3D" parent="."]
+script = ExtResource("5_gnmkv")
+
+[node name="Label" type="Label" parent="items_manager"]
+z_index = 1
+offset_left = 496.0
+offset_top = 278.0
+offset_right = 1440.0
+offset_bottom = 622.0
+pivot_offset = Vector2(491, 182)
+theme_override_font_sizes/font_size = 76
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="good" type="Area3D" parent="items_manager"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="items_manager/good"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.9371, 1.6912, -13.331)
+shape = SubResource("SphereShape3D_i2bot")
+
+[node name="good2" type="Area3D" parent="items_manager"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="items_manager/good2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4594, 3.15302, -5.0665)
+shape = SubResource("BoxShape3D_ae11d")
+
+[node name="good3" type="Area3D" parent="items_manager"]
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="items_manager/good3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3102, 1.87087, 23.4715)
+shape = SubResource("SphereShape3D_ljxgh")
+
+[node name="good4" type="Area3D" parent="items_manager"]
+
+[node name="CollisionShape3D19" type="CollisionShape3D" parent="items_manager/good4"]
+transform = Transform3D(0.999981, 0, 0.00607371, 0, 1, 0, -0.00607371, 0, 0.999981, -79.8812, 3.11561, -9.76091)
+shape = SubResource("BoxShape3D_t1ufa")
+
+[node name="good5" type="Area3D" parent="items_manager"]
+
+[node name="CollisionShape3D22" type="CollisionShape3D" parent="items_manager/good5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.4956, 1.07231, 16.6401)
+shape = SubResource("BoxShape3D_r75ja")
+
+[node name="bad" type="Area3D" parent="items_manager"]
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="items_manager/bad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4618, 1.87087, 0.0707941)
+shape = SubResource("BoxShape3D_rkl3n")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="items_manager/bad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1827, 1.87087, -14.8898)
+shape = SubResource("BoxShape3D_l1ii8")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="items_manager/bad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3102, 1.87087, 10.7319)
+shape = SubResource("SphereShape3D_ljxgh")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="items_manager/bad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.3827, 1.87087, 9.67279)
+shape = SubResource("SphereShape3D_ljxgh")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="items_manager/bad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.6976, 2.94508, 10.8974)
+shape = SubResource("BoxShape3D_kq55l")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="items_manager/bad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.4724, 2.94508, 10.7977)
+shape = SubResource("BoxShape3D_by0ix")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="items_manager/bad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.2764, 2.94508, 23.9236)
+shape = SubResource("BoxShape3D_dlnrm")
+
+[node name="CollisionShape3D12" type="CollisionShape3D" parent="items_manager/bad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.0967, 2.94508, 21.1546)
+shape = SubResource("BoxShape3D_cdss4")
+
+[node name="CollisionShape3D13" type="CollisionShape3D" parent="items_manager/bad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -98.6108, -0.363178, -24.7451)
+shape = SubResource("BoxShape3D_7tf1w")
+
+[node name="CollisionShape3D19" type="CollisionShape3D" parent="items_manager/bad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.6323, 1.07231, 16.6401)
+shape = SubResource("BoxShape3D_r75ja")
+
+[node name="CollisionShape3D20" type="CollisionShape3D" parent="items_manager/bad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.4524, 1.07231, 16.6401)
+shape = SubResource("BoxShape3D_r75ja")
+
+[node name="CollisionShape3D21" type="CollisionShape3D" parent="items_manager/bad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.0625, 1.07231, 16.6401)
+shape = SubResource("BoxShape3D_r75ja")
+
+[node name="CollisionShape3D23" type="CollisionShape3D" parent="items_manager/bad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.8986, 1.07231, 16.6401)
+shape = SubResource("BoxShape3D_r75ja")
+
+[node name="CollisionShape3D14" type="CollisionShape3D" parent="items_manager/bad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.0403, -0.363178, -24.8441)
+shape = SubResource("SphereShape3D_ptuyc")
+
+[node name="CollisionShape3D15" type="CollisionShape3D" parent="items_manager/bad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.6208, -0.363178, -19.0238)
+shape = SubResource("SphereShape3D_ptuyc")
+
+[node name="CollisionShape3D16" type="CollisionShape3D" parent="items_manager/bad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.053, -0.363178, -16.2533)
+shape = SubResource("SphereShape3D_ptuyc")
+
+[node name="CollisionShape3D17" type="CollisionShape3D" parent="items_manager/bad"]
+transform = Transform3D(0.985541, 0, 0.169436, 0, 1, 0, -0.169436, 0, 0.985541, -79.9233, -0.363178, -18.8107)
+shape = SubResource("SphereShape3D_bchwn")
+
+[node name="CollisionShape3D18" type="CollisionShape3D" parent="items_manager/bad"]
+transform = Transform3D(0.999981, 0, 0.00607371, 0, 1, 0, -0.00607371, 0, 0.999981, -80.0399, 1.97807, -29.1384)
+shape = SubResource("BoxShape3D_fycyi")
+
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="items_manager/bad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.4384, 1.59331, 19.7736)
+shape = SubResource("BoxShape3D_xw5jg")
+
+[node name="CollisionShape3D11" type="CollisionShape3D" parent="items_manager/bad"]
+transform = Transform3D(0.681258, 0, -0.732044, 0, 1, 0, 0.732044, 0, 0.681258, -43.0479, 1.59331, 20.5146)
+shape = SubResource("BoxShape3D_xw5jg")
+
+[node name="Final" type="Area3D" parent="items_manager"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="items_manager/Final"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -225.004, -48.0278, 0.889709)
+shape = SubResource("BoxShape3D_6r6ek")
+
+[node name="ColorRect" type="ColorRect" parent="items_manager/Final"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(1, 1, 1, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="items_manager/Final"]
+libraries = {
+"": SubResource("AnimationLibrary_6f1wp")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="items_manager"]
+libraries = {
+"": SubResource("AnimationLibrary_27kcf")
+}
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="items_manager"]
+libraries = {
+"": SubResource("AnimationLibrary_27kcf")
+}
+
+[node name="ColorRect" type="ColorRect" parent="items_manager"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -227.932, -51.0151, 0)
+mesh = SubResource("BoxMesh_vn26k")
+script = ExtResource("6_lswtj")
+
+[node name="ColorRect" type="ColorRect" parent="CSGMesh3D"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="audio_manager" type="Node3D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="audio_manager"]
+stream = ExtResource("7_dyche")
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="audio_manager"]
+libraries = {
+"": SubResource("AnimationLibrary_hcnq5")
+}
+autoplay = "audio"
+
+[connection signal="body_entered" from="CameraManager/oficina" to="CameraManager/Camera3D" method="_on_oficina_body_entered"]
+[connection signal="body_entered" from="CameraManager/baño" to="CameraManager/Camera3D" method="_on_baño_body_entered"]
+[connection signal="body_entered" from="CameraManager/muertos" to="CameraManager/Camera3D" method="_on_muertos_body_entered"]
+[connection signal="body_entered" from="CameraManager/cocina" to="CameraManager/Camera3D" method="_on_cocina_body_entered"]
+[connection signal="body_entered" from="CameraManager/salon" to="CameraManager/Camera3D" method="_on_salon_body_entered"]
+[connection signal="body_entered" from="CameraManager/pasillo1" to="CameraManager/Camera3D" method="_on_pasillo_1_body_entered"]
+[connection signal="body_entered" from="CameraManager/pasillo2" to="CameraManager/Camera3D" method="_on_pasillo_2_body_entered"]
+[connection signal="body_entered" from="CameraManager/Escaleras" to="CameraManager/Camera3D" method="_on_escaleras_body_entered"]
+[connection signal="restart" from="TimeManager" to="items_manager" method="_on_time_manager_restart"]
+[connection signal="body_entered" from="items_manager/good" to="items_manager" method="_on_good_body_entered"]
+[connection signal="body_exited" from="items_manager/good" to="items_manager" method="_on_good_body_exited"]
+[connection signal="body_entered" from="items_manager/good2" to="items_manager" method="_on_good_2_body_entered"]
+[connection signal="body_exited" from="items_manager/good2" to="items_manager" method="_on_good_2_body_exited"]
+[connection signal="body_entered" from="items_manager/good3" to="items_manager" method="_on_good_3_body_entered"]
+[connection signal="body_exited" from="items_manager/good3" to="items_manager" method="_on_good_3_body_exited"]
+[connection signal="body_entered" from="items_manager/good4" to="items_manager" method="_on_good_4_body_entered"]
+[connection signal="body_exited" from="items_manager/good4" to="items_manager" method="_on_good_4_body_exited"]
+[connection signal="body_entered" from="items_manager/good5" to="items_manager" method="_on_good_5_body_entered"]
+[connection signal="body_exited" from="items_manager/good5" to="items_manager" method="_on_good_5_body_exited"]
+[connection signal="body_entered" from="items_manager/bad" to="items_manager" method="_on_bad_body_entered"]
+[connection signal="body_exited" from="items_manager/bad" to="items_manager" method="_on_bad_body_exited"]
+[connection signal="body_entered" from="items_manager/Final" to="items_manager" method="_on_final_body_entered"]

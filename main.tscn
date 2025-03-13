@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://u670durmheuj"]
+[gd_scene load_steps=44 format=3 uid="uid://u670durmheuj"]
 
 [ext_resource type="PackedScene" uid="uid://cda6267y3faet" path="res://oficina.tscn" id="1_l3hyt"]
 [ext_resource type="PackedScene" uid="uid://cm0mqk367h8j8" path="res://character.tscn" id="2_bq5b8"]
@@ -50,6 +50,9 @@ size = Vector3(2.92002, 3.87097, 7.87195)
 [sub_resource type="BoxShape3D" id="BoxShape3D_rkl3n"]
 size = Vector3(5.56915, 3.78406, 5.42979)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_l1ii8"]
+size = Vector3(3.7762, 3.78406, 7.11912)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_kq55l"]
 size = Vector3(10.69, 6.44247, 5.45782)
 
@@ -80,6 +83,21 @@ size = Vector3(2.62731, 3.73894, 2.34952)
 [sub_resource type="BoxShape3D" id="BoxShape3D_6r6ek"]
 size = Vector3(18.6329, 21.177, 25.8458)
 
+[sub_resource type="Animation" id="Animation_kxviv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_cce8h"]
 resource_name = "new_animation"
 length = 3.0
@@ -96,25 +114,26 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_kxviv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6f1wp"]
 _data = {
 "RESET": SubResource("Animation_kxviv"),
 "new_animation": SubResource("Animation_cce8h")
+}
+
+[sub_resource type="Animation" id="Animation_w1era"]
+resource_name = "new_animation"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_yxmeg"]
@@ -142,22 +161,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_w1era"]
-resource_name = "new_animation"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_oyixr"]
@@ -228,12 +231,13 @@ _data = {
 [node name="oficina" parent="." instance=ExtResource("1_l3hyt")]
 
 [node name="Node3D" parent="." instance=ExtResource("2_bq5b8")]
-transform = Transform3D(2.135, 0, 0, 0, 2.135, 0, 0, 0, 2.135, 0, 2.29229, 0)
+transform = Transform3D(2.135, 0, 0, 0, 2.135, 0, 0, 0, 2.135, -2.00594, 2.29229, 0)
 
 [node name="CameraManager" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="CameraManager"]
-transform = Transform3D(-4.37114e-08, -0.572146, 0.820152, 0, 0.820152, 0.572146, -1, 2.50093e-08, -3.585e-08, -11.674, 8.021, 0.368)
+transform = Transform3D(0.784776, 0.311761, -0.535659, 0, 0.864275, 0.50302, 0.619779, -0.394758, 0.678263, -9.313, 7.964, 8.896)
+far = 400.0
 script = ExtResource("3_lvccc")
 
 [node name="oficina" type="Area3D" parent="CameraManager"]
@@ -336,6 +340,10 @@ shape = SubResource("BoxShape3D_r75ja")
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="items_manager/bad"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4618, 1.87087, 0.0707941)
 shape = SubResource("BoxShape3D_rkl3n")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="items_manager/bad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1827, 1.87087, -14.8898)
+shape = SubResource("BoxShape3D_l1ii8")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="items_manager/bad"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3102, 1.87087, 10.7319)

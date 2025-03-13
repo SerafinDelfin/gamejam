@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://i8il8706yt3t"]
+[gd_scene load_steps=5 format=3 uid="uid://i8il8706yt3t"]
 
 [ext_resource type="Texture2D" uid="uid://8u32xkyktiht" path="res://DALL·E 2025-03-13 02.53.00 - A haunted mansion on a foggy night, surrounded by dead trees and a broken iron gate. The windows glow dimly with an eerie light, and shadows move behi.webp" id="1_doa41"]
 [ext_resource type="Script" path="res://menu_principal.gd" id="1_h1mh5"]
+[ext_resource type="FontFile" uid="uid://bnlqy8pa14nm3" path="res://Marcellus-Regular.ttf" id="3_rgfvj"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_nl3ep"]
 
 [node name="Menu_principal" type="Control"]
 layout_mode = 3
@@ -13,6 +16,7 @@ grow_vertical = 2
 script = ExtResource("1_h1mh5")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.439049, 0.439049, 0.439049, 1)
 layout_mode = 0
 offset_left = -89.0
 offset_top = -614.0
@@ -22,44 +26,63 @@ texture = ExtResource("1_doa41")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 123.0
-offset_top = -8.0
-offset_right = 1797.0
-offset_bottom = 378.0
+offset_left = 30.0
+offset_top = 37.0
+offset_right = 830.0
+offset_bottom = 710.0
+theme_override_colors/font_color = Color(0.623529, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 95
+theme_override_fonts/font = ExtResource("3_rgfvj")
 theme_override_font_sizes/font_size = 266
-text = "ScapeLoop"
+text = "Scape
+Loop"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 103.0
-offset_top = 440.0
-offset_right = 1105.0
-offset_bottom = 694.0
+offset_left = 1176.0
+offset_top = 134.0
+offset_right = 1669.0
+offset_bottom = 388.0
+theme_override_colors/font_hover_color = Color(1, 0.309804, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.819608, 0, 0, 1)
+theme_override_colors/font_color = Color(0.819608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_rgfvj")
 theme_override_font_sizes/font_size = 180
 text = "Morir"
+icon = SubResource("ImageTexture_nl3ep")
+flat = true
 
 [node name="Button2" type="Button" parent="."]
 layout_mode = 0
-offset_left = 103.0
-offset_top = 748.0
-offset_right = 1105.0
-offset_bottom = 1002.0
+offset_left = 1055.0
+offset_top = 415.0
+offset_right = 1789.0
+offset_bottom = 669.0
+theme_override_colors/font_hover_color = Color(1, 0.309804, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.819608, 0, 0, 1)
+theme_override_colors/font_color = Color(0.819608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_rgfvj")
 theme_override_font_sizes/font_size = 180
 text = "Créditos"
+flat = true
 
 [node name="Button3" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1210.0
-offset_top = 440.0
-offset_right = 1819.0
-offset_bottom = 1002.0
+offset_left = 1204.0
+offset_top = 717.0
+offset_right = 1593.0
+offset_bottom = 971.0
+theme_override_colors/font_hover_color = Color(1, 0.309804, 0.305882, 1)
+theme_override_colors/font_pressed_color = Color(0.819608, 0, 0, 1)
+theme_override_colors/font_color = Color(0.819608, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_rgfvj")
 theme_override_font_sizes/font_size = 180
 text = "Salir"
+flat = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
