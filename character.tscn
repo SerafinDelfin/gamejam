@@ -1,0 +1,54 @@
+[gd_scene load_steps=10 format=3 uid="uid://cm0mqk367h8j8"]
+
+[ext_resource type="Script" path="res://character_body_3d.gd" id="1_3vuag"]
+[ext_resource type="PackedScene" uid="uid://b1oov8008xs53" path="res://personaje.tscn" id="2_5rrc0"]
+[ext_resource type="Texture2D" uid="uid://cvmelr321u3eo" path="res://botoncico.png" id="6_05ra1"]
+[ext_resource type="Script" path="res://touch_screen_button_5.gd" id="7_04e82"]
+[ext_resource type="Texture2D" uid="uid://dgx2isetg08pa" path="res://botoncito2.png" id="7_6b0o1"]
+[ext_resource type="Script" path="res://restarter.gd" id="7_bje0r"]
+[ext_resource type="Texture2D" uid="uid://carlpr14up4j8" path="res://circulo_blanco.png" id="7_sg2qc"]
+[ext_resource type="Texture2D" uid="uid://bq4j85o7wqsh" path="res://circulo_interior.png" id="9_i3llc"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1klcy"]
+radius = 0.23
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+script = ExtResource("1_3vuag")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_1klcy")
+
+[node name="personaje" parent="CharacterBody3D" instance=ExtResource("2_5rrc0")]
+transform = Transform3D(-3.49691e-09, 0, -0.08, 0, 0.08, 0, 0.08, 0, -3.49691e-09, 0, -1, 0)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TouchScreenButton5" type="TouchScreenButton" parent="Control"]
+position = Vector2(128, 560)
+texture_normal = ExtResource("7_sg2qc")
+script = ExtResource("7_04e82")
+
+[node name="TouchScreenButton6" type="TouchScreenButton" parent="Control"]
+position = Vector2(200, 632)
+scale = Vector2(0.64, 0.64)
+texture_normal = ExtResource("9_i3llc")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Control"]
+visible = false
+position = Vector2(1328, 560)
+texture_normal = ExtResource("6_05ra1")
+texture_pressed = ExtResource("7_6b0o1")
+action = "ui_accept"
+
+[node name="Restarter" type="Node3D" parent="."]
+script = ExtResource("7_bje0r")
+
+[connection signal="moverse" from="CharacterBody3D" to="CharacterBody3D/personaje" method="_on_character_body_3d_moverse"]
+[connection signal="quieto" from="CharacterBody3D" to="CharacterBody3D/personaje" method="_on_character_body_3d_quieto"]
+[connection signal="released" from="Control/TouchScreenButton5" to="Control/TouchScreenButton5" method="_on_released"]

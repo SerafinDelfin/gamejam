@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://i8il8706yt3t"]
+
+[ext_resource type="Texture2D" uid="uid://8u32xkyktiht" path="res://DALL·E 2025-03-13 02.53.00 - A haunted mansion on a foggy night, surrounded by dead trees and a broken iron gate. The windows glow dimly with an eerie light, and shadows move behi.webp" id="1_doa41"]
+[ext_resource type="Script" path="res://menu_principal.gd" id="1_h1mh5"]
+
+[node name="Menu_principal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h1mh5")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -89.0
+offset_top = -614.0
+offset_right = 2069.0
+offset_bottom = 1544.0
+texture = ExtResource("1_doa41")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 123.0
+offset_top = -8.0
+offset_right = 1797.0
+offset_bottom = 378.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 95
+theme_override_font_sizes/font_size = 266
+text = "ScapeLoop"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 440.0
+offset_right = 1105.0
+offset_bottom = 694.0
+theme_override_font_sizes/font_size = 180
+text = "Morir"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 748.0
+offset_right = 1105.0
+offset_bottom = 1002.0
+theme_override_font_sizes/font_size = 180
+text = "Créditos"
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1210.0
+offset_top = 440.0
+offset_right = 1819.0
+offset_bottom = 1002.0
+theme_override_font_sizes/font_size = 180
+text = "Salir"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]

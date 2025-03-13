@@ -1,0 +1,102 @@
+[gd_scene load_steps=13 format=3 uid="uid://u670durmheuj"]
+
+[ext_resource type="PackedScene" uid="uid://cda6267y3faet" path="res://oficina.tscn" id="1_l3hyt"]
+[ext_resource type="PackedScene" uid="uid://cm0mqk367h8j8" path="res://character.tscn" id="2_bq5b8"]
+[ext_resource type="Script" path="res://camera_3d.gd" id="3_lvccc"]
+[ext_resource type="PackedScene" uid="uid://cdunkvnqsmpft" path="res://time_manager.tscn" id="4_fnlfj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c272w"]
+size = Vector3(22.1435, 12.5219, 21.033)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j7oxj"]
+size = Vector3(19.6013, 10.6656, 11.0568)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ueqe"]
+size = Vector3(57.2427, 10.3951, 18.2039)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bnnv5"]
+size = Vector3(34.5104, 10.9847, 16.9093)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ohfbu"]
+size = Vector3(36.3826, 21.2942, 22.8155)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bpp7w"]
+size = Vector3(46.6345, 15.389, 13.2678)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jss5x"]
+size = Vector3(44.1268, 15.389, 13.2678)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t6m0t"]
+size = Vector3(125.4, 77.1955, 19.1894)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="oficina" parent="." instance=ExtResource("1_l3hyt")]
+
+[node name="Node3D" parent="." instance=ExtResource("2_bq5b8")]
+transform = Transform3D(2.135, 0, 0, 0, 2.135, 0, 0, 0, 2.135, 0, 2.29229, 0)
+
+[node name="CameraManager" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraManager"]
+transform = Transform3D(-4.37114e-08, -0.572146, 0.820152, 0, 0.820152, 0.572146, -1, 2.50093e-08, -3.585e-08, -11.674, 8.021, 0.368)
+script = ExtResource("3_lvccc")
+
+[node name="oficina" type="Area3D" parent="CameraManager"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraManager/oficina"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00927, 4.40106, -0.671265)
+shape = SubResource("BoxShape3D_c272w")
+
+[node name="baño" type="Area3D" parent="CameraManager"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraManager/baño"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.1193, 4.83279, -12.6537)
+shape = SubResource("BoxShape3D_j7oxj")
+
+[node name="muertos" type="Area3D" parent="CameraManager"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraManager/muertos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.0778, 5.1895, 16.6034)
+shape = SubResource("BoxShape3D_8ueqe")
+
+[node name="cocina" type="Area3D" parent="CameraManager"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraManager/cocina"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.5979, 4.99237, 16.9814)
+shape = SubResource("BoxShape3D_bnnv5")
+
+[node name="salon" type="Area3D" parent="CameraManager"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraManager/salon"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85.2989, 1.32019, -20.1315)
+shape = SubResource("BoxShape3D_ohfbu")
+
+[node name="pasillo1" type="Area3D" parent="CameraManager"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraManager/pasillo1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.6375, 7.19452, 0.0352478)
+shape = SubResource("BoxShape3D_bpp7w")
+
+[node name="pasillo2" type="Area3D" parent="CameraManager"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraManager/pasillo2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.2651, 7.19452, 0.0352478)
+shape = SubResource("BoxShape3D_jss5x")
+
+[node name="Escaleras" type="Area3D" parent="CameraManager"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="CameraManager/Escaleras"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -166.331, -18.7934, -0.192192)
+shape = SubResource("BoxShape3D_t6m0t")
+
+[node name="TimeManager" parent="." instance=ExtResource("4_fnlfj")]
+
+[connection signal="body_entered" from="CameraManager/oficina" to="CameraManager/Camera3D" method="_on_oficina_body_entered"]
+[connection signal="body_entered" from="CameraManager/baño" to="CameraManager/Camera3D" method="_on_baño_body_entered"]
+[connection signal="body_entered" from="CameraManager/muertos" to="CameraManager/Camera3D" method="_on_muertos_body_entered"]
+[connection signal="body_entered" from="CameraManager/cocina" to="CameraManager/Camera3D" method="_on_cocina_body_entered"]
+[connection signal="body_entered" from="CameraManager/salon" to="CameraManager/Camera3D" method="_on_salon_body_entered"]
+[connection signal="body_entered" from="CameraManager/pasillo1" to="CameraManager/Camera3D" method="_on_pasillo_1_body_entered"]
+[connection signal="body_entered" from="CameraManager/pasillo2" to="CameraManager/Camera3D" method="_on_pasillo_2_body_entered"]
+[connection signal="body_entered" from="CameraManager/Escaleras" to="CameraManager/Camera3D" method="_on_escaleras_body_entered"]

@@ -1,0 +1,41 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="ScapeLoop"
+config/description="Juego para la GameJam de Cesur PTA.
+
+El juego debía tratar sobre un \"TimeLoop\"."
+run/main_scene="res://menu_principal.tscn"
+config/features=PackedStringArray("4.3", "Mobile")
+run/max_fps=60
+run/low_processor_mode=true
+boot_splash/show_image=false
+config/icon="res://icono ia.webp"
+
+[autoload]
+
+Global="*res://global.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[rendering]
+
+renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

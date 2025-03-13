@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://u670durmheuj"]
+
+[ext_resource type="PackedScene" uid="uid://cda6267y3faet" path="res://oficina.tscn" id="1_l3hyt"]
+[ext_resource type="PackedScene" uid="uid://cm0mqk367h8j8" path="res://character.tscn" id="2_bq5b8"]
+[ext_resource type="Script" path="res://camera_3d.gd" id="3_lvccc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c272w"]
+size = Vector3(24.1738, 12.5219, 21.033)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="oficina" parent="." instance=ExtResource("1_l3hyt")]
+
+[node name="Node3D" parent="." instance=ExtResource("2_bq5b8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.08259, 0)
+
+[node name="CameraManager" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraManager"]
+transform = Transform3D(0.707107, 0.122788, -0.696364, 0, 0.984808, 0.173648, 0.707107, -0.122788, 0.696364, -9.38797, 7.96373, 8.03102)
+script = ExtResource("3_lvccc")
+
+[node name="oficina" type="Area3D" parent="CameraManager"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraManager/oficina"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.994141, 4.40106, -0.671265)
+shape = SubResource("BoxShape3D_c272w")
+
+[node name="baño" type="Area3D" parent="CameraManager"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraManager/baño"]
+
+[node name="muertos" type="Area3D" parent="CameraManager"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraManager/muertos"]
+
+[node name="cocina" type="Area3D" parent="CameraManager"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraManager/cocina"]
+
+[node name="salon" type="Area3D" parent="CameraManager"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraManager/salon"]
+
+[connection signal="area_entered" from="CameraManager/oficina" to="CameraManager/Camera3D" method="_on_oficina_area_entered"]
+[connection signal="area_exited" from="CameraManager/oficina" to="CameraManager/Camera3D" method="_on_oficina_area_exited"]
+[connection signal="area_shape_entered" from="CameraManager/oficina" to="CameraManager/Camera3D" method="_on_oficina_area_shape_entered"]
+[connection signal="area_shape_exited" from="CameraManager/oficina" to="CameraManager/Camera3D" method="_on_oficina_area_shape_exited"]
+[connection signal="body_entered" from="CameraManager/oficina" to="CameraManager/Camera3D" method="_on_oficina_body_entered"]
+[connection signal="body_exited" from="CameraManager/oficina" to="CameraManager/Camera3D" method="_on_oficina_body_exited"]
+[connection signal="body_shape_entered" from="CameraManager/oficina" to="CameraManager/Camera3D" method="_on_oficina_body_shape_entered"]
+[connection signal="body_shape_exited" from="CameraManager/oficina" to="CameraManager/Camera3D" method="_on_oficina_body_shape_exited"]

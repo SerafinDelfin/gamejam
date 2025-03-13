@@ -1,0 +1,33 @@
+[gd_resource type="VisualShader" load_steps=4 format=3 uid="uid://duov21hjditng"]
+
+[sub_resource type="Gradient" id="Gradient_hdjl5"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_072ox"]
+gradient = SubResource("Gradient_hdjl5")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_vucof"]
+texture = SubResource("GradientTexture1D_072ox")
+texture_type = 1
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D tex_frg_2 : source_color;
+
+
+
+void fragment() {
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, UV);
+
+
+// Output:0
+	ALBEDO = vec3(n_out2p0.xyz);
+
+
+}
+"
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_vucof")
+nodes/fragment/2/position = Vector2(20, 160)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0)

@@ -1,0 +1,122 @@
+[gd_scene load_steps=5 format=3 uid="uid://4cgsg1gc31cw"]
+
+[ext_resource type="Script" path="res://creditos.gd" id="1_oceb8"]
+
+[sub_resource type="Animation" id="Animation_rwtf2"]
+resource_name = "jaja"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -1500), Vector2(0, 500)]
+}
+
+[sub_resource type="Animation" id="Animation_xgaso"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1500)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ftr7g"]
+_data = {
+"RESET": SubResource("Animation_xgaso"),
+"jaja": SubResource("Animation_rwtf2")
+}
+
+[node name="Creditos" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oceb8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_top = -1500.0
+offset_right = 40.0
+offset_bottom = -1460.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -279.0
+offset_right = 1643.0
+offset_bottom = 1397.0
+theme_override_font_sizes/font_size = 71
+text = "Modelado de personaje
+
+Modelado de Salón
+
+Modelado de Cocina
+
+Modelado de baño, animaciones
+y texturizado de baño
+
+Modelado de oficina, unión de salas, 
+texturizado de todo lo demás, 
+iluminación,programación de 
+jugabilidad, shaders, escenario, 
+colisiones, áreas, créditos, menús
+y diseño de los mismos."
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 649.0
+offset_right = 2571.0
+offset_bottom = 1397.0
+theme_override_font_sizes/font_size = 71
+text = "Pablo
+
+Curro
+
+Pedro
+
+Jose
+
+
+
+
+Manuel"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_ftr7g")
+}
+autoplay = "jaja"
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 268.0
+offset_top = -290.0
+offset_right = 1594.0
+offset_bottom = -73.0
+theme_override_font_sizes/font_size = 120
+text = "Menú Principal"
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
